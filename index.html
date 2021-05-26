@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Место</title>
+  <link rel="stylesheet" href="pages/index.css">
+</head>
+<body class="page">
+
+  <header class="header">
+    <img class="logo" src="images/logo/logo.svg" alt="Логотип">
+  </header>
+
+  <main class="content">
+   
+    <section class="profile">
+      <img src="images/profile/Profile_image.jpg" 
+      alt="Аватар" class="profile__avatar">
+      <div class="profile__info">
+        <div class="profile__title">
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <button class="profile__edit-button" type="button"></button>
+        </div>
+        <p class="profile__description">Исследователь океана</p>
+      </div>
+      <button class="profile__add-button" type="button"></button>
+    </section>
+
+    <section class="elements">
+      <ul class="elements__items">
+        <li class="elements__item">
+          <img class="elements__photo" 
+          src="images/elements/01_Karachaevsk.jpg"
+          alt="Древняя церковь">
+          <div class="elements__description">
+              <h3 class="elements__title">Карачаевск</h3>
+              <button class="elements__like" type="button"></button>
+          </div>
+        </li>
+
+        <li class="elements__item">
+          <img class="elements__photo"
+          src="images/elements/02_Elbrus.jpg"
+          alt="Горы">
+          <div class="elements__description">
+              <h3 class="elements__title">Гора Эльбрус</h3>
+              <button class="elements__like" type="button"></button>
+          </div>
+        </li>
+
+        <li class="elements__item">
+          <img class="elements__photo" 
+          src="images/elements/03_Dombay.jpg"
+          alt="Вершины гор">
+          <div class="elements__description">
+              <h3 class="elements__title">Домбай</h3>
+              <button class="elements__like" type="button"></button>
+          </div>
+        </li>
+
+        <li class="elements__item">
+          <img class="elements__photo"
+          src="images/elements/04_Khimki.jpg"
+          alt="Закат">
+          <div class="elements__description">
+              <h3 class="elements__title">Химки</h3>
+              <button class="elements__like" type="button"></button>
+          </div>
+        </li>
+
+        <li class="elements__item">
+          <img class="elements__photo"
+          src="images/elements/05_Mordovia.jpg"
+          alt="Церковь">
+          <div class="elements__description">
+              <h3 class="elements__title">Мордовия</h3>
+              <button class="elements__like" type="button"></button>
+          </div>
+        </li>
+
+        <li class="elements__item">
+          <img class="elements__photo"
+          src="images/elements/06_Krym.jpg"
+          alt="Вид на море">
+          <div class="elements__description">
+              <h3 class="elements__title">Крым</h3>
+              <button class="elements__like" type="button"></button>
+          </div>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p class="footer__copyright">&#169; 2021 Mesto Russia</p>
+  </footer>
+
+  <div class="popup">
+    <div class="popup__container">
+      <button class="popup__exit-button" type="button"></button>
+      <h3 class="popup__title">Редактировать профиль</h3>
+      <form class="popup__form" name="profile">
+        <input class="popup__field popup__field_type_name" 
+        type="text" name="username" value="Жак-Ив Кусто">
+        <input class="popup__field popup__field_type_description" 
+        type="text" name="description" value="Исследователь океана">
+        <button class="popup__save-button" type="submit">Сохранить</button>
+      </form>
+    </div>   
+  </div>
+
+  <script src="script/index.js"></script>
+
+</body>
+</html>
