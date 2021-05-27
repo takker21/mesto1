@@ -9,6 +9,9 @@ const profileDescription = document.querySelector('.profile__description');
 
 function popupOpen() {
   popup.classList.add('popup_opened');
+  
+  popupFieldName.value = profileName.textContent.trim();
+  popupFieldDescription.value = profileDescription.textContent.trim();
 }
 
 function popupClose() {
@@ -20,7 +23,7 @@ function formSubmitHandler (evt) {
   evt.preventDefault();
   profileName.textContent = popupFieldName.value;
   profileDescription.textContent = popupFieldDescription.value;
-  popupToggle();
+  popupClose();
 }
 
 profileEditButton.addEventListener('click', popupOpen);

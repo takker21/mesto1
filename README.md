@@ -12,4 +12,4 @@
 
 ### Публикация проекта
 
-https://github.com/takker21/mestofree
+https://takker21.github.io/mesto21.github.io/index.html
