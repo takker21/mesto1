@@ -1,0 +1,21 @@
+.popup-edit__button {
+    display: block;
+    width: 100%;
+    height: 50.15px;
+    color: white;
+    background-color: black;
+
+    font-family: 'Inter', ‘Arial’, sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 1.22;
+    text-align: center;
+    border: 0;
+    margin-top: 48px;
+}
+
+.popup-edit__button:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+  cursor: pointer;
+}

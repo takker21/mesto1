@@ -3,114 +3,66 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Место</title>
-  <link rel="stylesheet" href="pages/index.css">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Mesto</title>
+  <link rel="stylesheet" href="./pages/index.css">
 </head>
-<body class="page">
-
-  <header class="header">
-    <img class="logo" src="images/logo/logo.svg" alt="Логотип">
-  </header>
-
-  <main class="content">
-   
-    <section class="profile">
-      <img src="images/profile/Profile_image.jpg" 
-      alt="Аватар" class="profile__avatar">
+<body>
+  <main class="root">
+    <header class="header root__section">
+      <img src="./images/logo.svg" alt="mesto logo" class="logo">
+    </header>
+    <section class="profile root__section">
+      <div class="profile__photo"></div>
       <div class="profile__info">
-        <div class="profile__title">
-          <h1 class="profile__name">Жак-Ив Кусто</h1>
-          <button class="profile__edit-button" type="button"></button>
+        <div class="profile__data">
+          <h1 class="profile__name">Жак-Ив Кусто</h1> 
+          <button class="profile__edit"></button>       
         </div>
-        <p class="profile__description">Исследователь океана</p>
+        <p class="profile__job">Исследователь океана</p>
       </div>
-      <button class="profile__add-button" type="button"></button>
+      <button class="button profile__button">+</button>
     </section>
 
-    <section class="elements">
-      <ul class="elements__items">
-        <li class="elements__item">
-          <img class="elements__photo" 
-          src="images/elements/01_Karachaevsk.jpg"
-          alt="Древняя церковь">
-          <div class="elements__description">
-              <h3 class="elements__title">Карачаевск</h3>
-              <button class="elements__like" type="button"></button>
-          </div>
-        </li>
+    <div class="places-list root__section"></div>
 
-        <li class="elements__item">
-          <img class="elements__photo"
-          src="images/elements/02_Elbrus.jpg"
-          alt="Горы">
-          <div class="elements__description">
-              <h3 class="elements__title">Гора Эльбрус</h3>
-              <button class="elements__like" type="button"></button>
-          </div>
-        </li>
+    <footer class="footer">
+      <p class="footer__copyright">&#169; 2021 Mesto Russia</p>
+    </footer>
 
-        <li class="elements__item">
-          <img class="elements__photo" 
-          src="images/elements/03_Dombay.jpg"
-          alt="Вершины гор">
-          <div class="elements__description">
-              <h3 class="elements__title">Домбай</h3>
-              <button class="elements__like" type="button"></button>
-          </div>
-        </li>
 
-        <li class="elements__item">
-          <img class="elements__photo"
-          src="images/elements/04_Khimki.jpg"
-          alt="Закат">
-          <div class="elements__description">
-              <h3 class="elements__title">Химки</h3>
-              <button class="elements__like" type="button"></button>
-          </div>
-        </li>
-
-        <li class="elements__item">
-          <img class="elements__photo"
-          src="images/elements/05_Mordovia.jpg"
-          alt="Церковь">
-          <div class="elements__description">
-              <h3 class="elements__title">Мордовия</h3>
-              <button class="elements__like" type="button"></button>
-          </div>
-        </li>
-
-        <li class="elements__item">
-          <img class="elements__photo"
-          src="images/elements/06_Krym.jpg"
-          alt="Вид на море">
-          <div class="elements__description">
-              <h3 class="elements__title">Крым</h3>
-              <button class="elements__like" type="button"></button>
-          </div>
-        </li>
-      </ul>
+    <section class="popup">
+      <div class="popup__content">
+        <img src="./images/close.svg" alt="" class="popup__close">
+        <h3 class="popup__title">Новое место</h3>
+        <form class="popup__form" name="new" novalidate>
+            <input required minlength="2" maxlength="30" type="text" name="name" class="popup__input popup__input_type_name" placeholder="Название">
+            <input required type="url" name="link" class="popup__input popup__input_type_link-url" placeholder="Ссылка на картинку">
+            <button type class="button popup__button">Создать</button>
+        </form>
+      </div>
     </section>
+
+    <section class="popup-edit">
+      <div class="popup__content">
+        <img src="./images/close.svg" alt="" class="popup-edit__close">
+        <h3 class="popup__title">Редактировать профиль</h3>
+        <form class="popup__form" name="profile" novalidate>
+            <input required minlength="2" maxlength="30" type="text" name="name" class="popup__input popup-edit__input_type_name" placeholder="Имя">
+            <input required minlength="2" maxlength="30" type="text" name="about" class="popup__input popup-edit__input_type_about" placeholder="О себе">
+            <button type class="button popup-edit__button">Сохранить</button>
+        </form>
+      </div>
+    </section>
+
+    <section class='popup-image'>
+      <div class='popup-image__content'>
+        <img src="./images/close.svg" alt="" class="popup-image__close">
+        <img src='' alt='' class="popup-image__image">
+      </div>
+    </div>
   </main>
 
-  <footer class="footer">
-    <p class="footer__copyright">&#169; 2021 Mesto Russia</p>
-  </footer>
-
-  <div class="popup">
-    <div class="popup__container">
-      <button class="popup__exit-button" type="button"></button>
-      <h3 class="popup__title">Редактировать профиль</h3>
-      <form class="popup__form" name="profile">
-        <input class="popup__field popup__field_type_name" 
-        type="text" name="username" value="Жак-Ив Кусто">
-        <input class="popup__field popup__field_type_description" 
-        type="text" name="description" value="Исследователь океана">
-        <button class="popup__save-button" type="submit">Сохранить</button>
-      </form>
-    </div>   
-  </div>
-
-  <script src="script/index.js"></script>
-
+  <script src='./script.js'></script>
 </body>
 </html>
