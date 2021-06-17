@@ -7,8 +7,9 @@
   <title>Mesto</title>
   <link rel="stylesheet" href="./pages/index.css">
 </head>
+
 <body>
-  <main class="root">
+  <div class="root">
     <header class="header root__section">
       <img src="./images/logo.svg" alt="mesto logo" class="logo">
     </header>
@@ -19,50 +20,67 @@
           <h1 class="profile__name">Жак-Ив Кусто</h1> 
           <button class="profile__edit"></button>       
         </div>
-        <p class="profile__job">Исследователь океана</p>
+        <p  class="profile__job">Исследователь океана</p>
       </div>
       <button class="button profile__button">+</button>
     </section>
 
-    <div class="places-list root__section"></div>
+    <section class="elements root__section">
+      <ul class="elements__list"></ul>
+    </section>
+
 
     <footer class="footer">
       <p class="footer__copyright">&#169; 2021 Mesto Russia</p>
     </footer>
 
-
-    <section class="popup">
+    
+    <section class="popup popup_type_new-card">
       <div class="popup__content">
         <img src="./images/close.svg" alt="" class="popup__close">
         <h3 class="popup__title">Новое место</h3>
-        <form class="popup__form" name="new" novalidate>
-            <input required minlength="2" maxlength="30" type="text" name="name" class="popup__input popup__input_type_name" placeholder="Название">
-            <input required type="url" name="link" class="popup__input popup__input_type_link-url" placeholder="Ссылка на картинку">
-            <button type class="button popup__button">Создать</button>
+        <form class="popup__form" name="new-card" novalidate>
+            <input required minlength="2" maxlength="30" type="text" id="place-input"  name="place" class="popup__input" placeholder="Название">
+            <input required type="url" name="img"  id="img-input" class="popup__input" placeholder="Ссылка на картинку">
+            <button  type="submit" class="button popup__button">Создать</button>
+        </form>
+      </div>
+    </section>
+    
+    <section class="popup popup_type_edit">
+      <div class="popup__content popup__content_edit">
+        <img src="./images/close.svg" alt="" class="popup__close popup__close_edit">
+        <h3 class="popup__title popup__title_edit">Редактировать профиль</h3>
+        <form class="popup__form" name="edit-profile" novalidate>
+            <input required minlength="2" maxlength="30" type="text"  id="name-input" name="name" class="popup__input" placeholder="Имя">
+            <input required minlength="2" maxlength="30" type="text" id="about-input"  name="about" class="popup__input" placeholder="О себе">
+            <button  type="submit" class="popup__button button">Сохранить</button>
         </form>
       </div>
     </section>
 
-    <section class="popup-edit">
-      <div class="popup__content">
-        <img src="./images/close.svg" alt="" class="popup-edit__close">
-        <h3 class="popup__title">Редактировать профиль</h3>
-        <form class="popup__form" name="profile" novalidate>
-            <input required minlength="2" maxlength="30" type="text" name="name" class="popup__input popup-edit__input_type_name" placeholder="Имя">
-            <input required minlength="2" maxlength="30" type="text" name="about" class="popup__input popup-edit__input_type_about" placeholder="О себе">
-            <button type class="button popup-edit__button">Сохранить</button>
-        </form>
+
+
+    <section class="popup popup_type_image">
+      <div class="figure">
+        <img src="./images/close.svg" alt="закрытие" class="popup__close popup__close_edit">
+        <img class="figure__image" src="URL" alt="картинки">
+        <div class="figure__figcaption"></div>
       </div>
     </section>
+  </div>
 
-    <section class='popup-image'>
-      <div class='popup-image__content'>
-        <img src="./images/close.svg" alt="" class="popup-image__close">
-        <img src='' alt='' class="popup-image__image">
-      </div>
-    </div>
-  </main>
+  <template id="card-template">
+		<div class="element">
+			<img class="element__image" src="#" alt="картинка">
+			<div class="element__description">
+				<h3 class="element__name"></h3>
+				<button type="button" aria-label="Лайк" class="element__like-icon"></button>
+			</div>
+			<button type="button" class="element__delete-icon"></button>
+		</div>
+	</template>
 
-  <script src='./script.js'></script>
+  <script src='./scripts/script.js'></script>
 </body>
 </html>

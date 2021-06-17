@@ -1,0 +1,18 @@
+@import url(./__image/element__image.css);
+@import url(./__image/_city/_karachaevsk/element__image_city_karachaevsk.css);
+@import url(./__delete-icon/element__delete-icon.css);
+@import url(./__description/element__description.css);
+@import url(./__name/element__name.css);
+@import url(./__like-icon/element__like-icon.css);
+
+.element {
+    width: 282px;
+    border-radius: 10px;
+    margin: 0 auto;
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-direction: column;
+	justify-content: start;
+	position: relative;
+}

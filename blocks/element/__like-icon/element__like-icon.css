@@ -1,0 +1,20 @@
+.element__like-icon {
+  background: url(../../../images/like-inactive.svg) transparent no-repeat center/contain;
+  background-color: transparent;
+  border: none;
+  width: 23px;
+  margin: 25px auto 21px;
+  height: 19px;
+  cursor: pointer;
+  transition: transform .3s linear;
+  
+}
+
+.element__like-icon_liked {
+  background-image: url(../../../images/like-active.svg);
+}
+
+.element__like-icon:hover {
+  opacity: .3;
+	transition: opacity 0.3s;
+  }
