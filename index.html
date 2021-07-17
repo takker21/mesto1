@@ -1,86 +1,92 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Mesto</title>
-  <link rel="stylesheet" href="./pages/index.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="Максим Моряков">
+    <link rel="stylesheet" href="./pages/index.css">
+    <title>Место</title>
 </head>
-
-<body>
-  <div class="root">
-    <header class="header root__section">
-      <img src="./images/logo.svg" alt="mesto logo" class="logo">
+<body class="body">
+    <header class="header">
+        <img src="./image/logo.svg" alt="Логотип страницы" class="logo">
     </header>
-    <section class="profile root__section">
-      <div class="profile__photo"></div>
-      <div class="profile__info">
-        <div class="profile__data">
-          <h1 class="profile__name">Жак-Ив Кусто</h1> 
-          <button class="profile__edit"></button>       
-        </div>
-        <p  class="profile__job">Исследователь океана</p>
-      </div>
-      <button class="button profile__button">+</button>
-    </section>
-
-    <section class="elements root__section">
-      <ul class="elements__list"></ul>
-    </section>
-
-
+    <main class="main">
+        <section class="profile">
+            <img src="./image/Zhak-Iv_Kusto.jpg" alt="Аватар пользователя" class="profile__avatar">
+            <div class="profile__intro">
+                <h1 class="profile__title">Жак-Ив Кусто</h1>
+                <button class="profile__edit-button" type="button" aria-label="Редактировать профиль"></button>
+                <p class="profile__subtitle">Исследователь океана</p>
+            </div>
+            <button type="button" class="profile__add-button" aria-label="Добавить пост"></button>
+        </section>
+        <section class="elements">
+            <template id="template-card">
+                <article class="element">
+                    <button type="button" class="element__delete-button" aria-label="Удалить пост"></button>
+                    <img src="#" alt="#" class="element__image">
+                    <h2 class="element__text"></h2>
+                    <button type="button" class="element__like" aria-label="Мне нравиться"></button>
+                </article>
+            </template>
+        </section>
+    </main>
     <footer class="footer">
-      <p class="footer__copyright">&#169; 2021 Mesto Russia</p>
+        <p class="footer__copyright">&copy; 2021 Силкин Дмитрий</p>
     </footer>
-
     
-    <section class="popup popup_type_new-card">
-      <div class="popup__content">
-        <img src="./images/close.svg" alt="" class="popup__close">
-        <h3 class="popup__title">Новое место</h3>
-        <form class="popup__form" name="new-card" novalidate>
-            <input required minlength="2" maxlength="30" type="text" id="place-input"  name="place" class="popup__input" placeholder="Название">
-            <input required type="url" name="img"  id="img-input" class="popup__input" placeholder="Ссылка на картинку">
-            <button  type="submit" class="button popup__button">Создать</button>
-        </form>
-      </div>
-    </section>
+    <div class="popup popup_type_edit-profile">
+        <div class="popup__container">
+            <button type="button" class="popup__close" id="edit-profile-close" aria-label="Закрыть окно"></button>
+            <h2 class="popup__title">Редактировать профиль</h2>
+            <form class="form" name="edit-profile" id="form-profile" novalidate>
+                <input class="form__input form__input_type_name" 
+                    type="text" name="username" id="userName"  
+                    minlength="2" maxlength="40" 
+                    placeholder="Имя"
+                    required 
+                    value="">
+                <span class="form__input-error" id="userName-error"></span>
+                <input class="form__input form__input_type_description" 
+                    type="text" name="userjob" id="userjob"
+                    minlength="2" maxlength="200" 
+                    placeholder="О себе" 
+                    required 
+                    value="">
+                <span class="form__input-error" id="userjob-error"></span>
+                <button class="form__button" type="submit" aria-label="Сохранить" value="Сохранить">Сохранить</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="popup popup_type_add-card">
+        <div class="popup__container">
+            <button type="button" class="popup__close popup__button-close"></button>
+            <h2 class="popup__title">Новое место</h2>
+            <form name="add-element" class="form" id="form-card" novalidate>
+                <input type="text" name="element-name" id="element-name" 
+                    placeholder="Название" class="form__input form__input_type_place" 
+                    value="" minlength="2" maxlength="30" required>
+                <span class="form__input-error" id="element-name-error"></span>
+                <input type="url" name="element-link" placeholder="Ссылка на картинку" class="form__input form__input_type_link" id="link" value="" required>
+                <span class="form__input-error" id="link-error"></span>
+                <button type="submit" class="form__button" value="Сохранить" id="profileSave" aria-label="Сохранить">Сохранить</button>
+            </form>
+        </div>
+    </div>
     
-    <section class="popup popup_type_edit">
-      <div class="popup__content popup__content_edit">
-        <img src="./images/close.svg" alt="" class="popup__close popup__close_edit">
-        <h3 class="popup__title popup__title_edit">Редактировать профиль</h3>
-        <form class="popup__form" name="edit-profile" novalidate>
-            <input required minlength="2" maxlength="30" type="text"  id="name-input" name="name" class="popup__input" placeholder="Имя">
-            <input required minlength="2" maxlength="30" type="text" id="about-input"  name="about" class="popup__input" placeholder="О себе">
-            <button  type="submit" class="popup__button button">Сохранить</button>
-        </form>
-      </div>
-    </section>
+    <div class="popup popup_type_image">
+        <figure class="figure">
+            <button class="popup__close popup__button-close" type="button" id="closeImg"></button>
+            <img src="#" alt="#" class="figure__image"/>
+            <figcaption class="figure__caption"></figcaption>
+        </figure>
+    </div>
 
-
-
-    <section class="popup popup_type_image">
-      <div class="figure">
-        <img src="./images/close.svg" alt="закрытие" class="popup__close popup__close_edit">
-        <img class="figure__image" src="URL" alt="картинки">
-        <div class="figure__figcaption"></div>
-      </div>
-    </section>
-  </div>
-
-  <template id="card-template">
-		<div class="element">
-			<img class="element__image" src="#" alt="картинка">
-			<div class="element__description">
-				<h3 class="element__name"></h3>
-				<button type="button" aria-label="Лайк" class="element__like-icon"></button>
-			</div>
-			<button type="button" class="element__delete-icon"></button>
-		</div>
-	</template>
-
-  <script src='./scripts/script.js'></script>
+<script src="./scripts/initial-сards.js"></script>
+<script src="./scripts/validate.js"></script>
+<script src="./scripts/script.js"></script>
 </body>
 </html>

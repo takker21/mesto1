@@ -1,30 +1,12 @@
-@import url(./__photo/profile__photo.css);
-@import url(./__data/profile__data.css);
-@import url(./__name/profile__name.css);
-@import url(./__job/profile__job.css);
-@import url(./__button/profile__button.css);
-@import url(./__edit/profile__edit.css);
-@import url(./__info/profile__info.css);
-
 .profile {
-  max-width: 882px;
-  margin: 40px auto 0;
-  display: flex;
-  flex-direction: row;
-}
-
-
-@media screen and (max-width: 1100px) {
-  .profile {
-    max-width: 700px;
-    margin: 40px auto 0;
-  }
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
 }
 
 @media screen and (max-width: 767px) {
-  .profile {
-    max-width: 320px;
-    flex-direction: column;
-    align-items: center;
-  }
+    .profile {
+        flex-direction: column;
+        max-width: 100%;
+    }
 }

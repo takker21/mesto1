@@ -1,19 +1,4 @@
-@import url(./__image/figure__image.css);
-
 .figure {
-    max-width: 80vw;
-    max-height: 80vh;
-    background-color: #fff;
-    border-radius: 10px;
-    position: relative;
-    box-sizing: border-box;
-    padding: 0;
-    align-items: center;
-    justify-content: center;
-}
-
-@media screen and (max-width: 540px) {
-    .figure {
-        width: calc(100% - 60px);
-    }
+    margin: 0;
+    position: inherit;
 }
