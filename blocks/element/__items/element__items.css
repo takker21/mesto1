@@ -1,0 +1,14 @@
+.element__items {
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 0 0 10px 10px;
+    padding: 25px 21px;
+}
+
+@media screen and (max-width: 767px) {
+    .element__items {
+        padding: 23px 21px;
+    }
+}

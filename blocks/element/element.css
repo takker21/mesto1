@@ -1,0 +1,11 @@
+.element {
+    width: 282px;
+    border-radius: 10px;
+    margin: 0 auto;
+    background-color: white;
+    color: black;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    position: relative;
+}
