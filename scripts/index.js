@@ -1,3 +1,4 @@
+import { openPopup, closePopup } from './utils.js';
 import { Card } from './Card.js';
 import { FormValidator } from './FormValidator.js';
 
@@ -13,31 +14,14 @@ const inputAddCardName = document.querySelector('.form__input_type_place');
 const inputAddCardLink = document.querySelector('.form__input_type_link');
 const closePopupAddButton = document.querySelector('.popup__button-close');
 const cardsContainer = document.querySelector('.elements');
-const popupFormCard = document.querySelector('#form-card');
 
 const popupEditProfile = document.querySelector('.popup_type_edit-profile');
 const popupAddCard = document.querySelector('.popup_type_add-card');
 const formAddCard = popupAddCard.querySelector('.form');
 const inputList = formAddCard.querySelectorAll('.form__input');
-const addCardButtonSave = popupAddCard.querySelector('.form__button');
+const closeImgButton = document.querySelector('#closeImg');
+const popupFigure = document.querySelector('.popup_type_image');
 
-const esc = 'Escape';
-
-// Функция закрытия по оверлею 
-const setOverlayListener = function(evt) {
-   const openedPopup = document.querySelector('.popup_opened');
-       if(evt.target === openedPopup) {
-           closePopup(openedPopup);
-       }
-   }
-
-// Функция закрытия по кнопке Escape
-const setEscListener = function(evt) {
-           if(evt.key === esc) {
-           const openedPopup = document.querySelector('.popup_opened');
-           closePopup(openedPopup);
-       }
-}
 
 // Добавления карточек при загрузке страницы
  initialCards.forEach (function (item){
@@ -54,15 +38,7 @@ function renderCard(link, name) {
 function handleCardFormSubmit(evt) {
    evt.preventDefault();
    renderCard(inputAddCardLink.value, inputAddCardName.value);
-   const resetForm = new FormValidator (config, formAddCard);
-   resetForm.resetForm();
    closePopup(popupAddCard);
-   addCardButtonSave.disabled = true;
-}
-
-const enableValidation = (config, popup) => {
-   const formValidatorEditProfile = new FormValidator(config, popup);
-   formValidatorEditProfile.enableValidation();
 }
 
 // Открытие окна редактирования профиля
@@ -70,8 +46,6 @@ function openEditPopup() {
   openPopup(popupEditProfile)
   nameInput.value = profileName.textContent;
   jobInput.value = profileText.textContent;
-
-  enableValidation(config, popupEditProfile);
 }
 
 // Изменение данных профиля 
@@ -84,20 +58,6 @@ function handleProfileFormSubmit(evt) {
 
 function closeAddCardPopup() {
    closePopup(popupAddCard);
-   const resetForm = new FormValidator (config, formAddCard);
-    resetForm.resetForm();
-}
-
-function openPopup(popup) {
-   popup.classList.add('popup_opened');
-   document.addEventListener('mousedown', setOverlayListener);
-   document.addEventListener('keydown', setEscListener);
-}
-
-function closePopup(popup) {
-   popup.classList.remove('popup_opened');
-   document.removeEventListener('mousedown', setOverlayListener);
-   document.removeEventListener('keydown', setEscListener);
 }
 
 // Cлушатель отправки формы редактирования профиля
@@ -114,18 +74,22 @@ closePopupButton.addEventListener('click', () => {
 // Слушатель кнопки открытия попапа для добавления карточки
 openAddCardButton.addEventListener('click', () => {
    openPopup(popupAddCard);
-    inputList.forEach((input) => {
-        input.addEventListener('keydown', () => {
-            enableValidation(config, popupAddCard);
-        })
-    })
+   addCardFormValidator.resetForm();
 });
 
 // Слушатель кнопки закрытия попапа добавления карточки
 closePopupAddButton.addEventListener('click', closeAddCardPopup);
 
+closeImgButton.addEventListener('click', () => {
+   closePopup(popupFigure);
+})
+
 // Cлушатель отправки формы добавления карточки из попапа
-popupFormCard.addEventListener('submit', handleCardFormSubmit);
+popupAddCard.addEventListener('submit', handleCardFormSubmit);
+
+// Cлушатель отправки формы редактирования профиля
+popupFormProfile.addEventListener('submit', handleProfileFormSubmit);
+
 
 const config = {
    formSelector: '.form',
@@ -135,4 +99,8 @@ const config = {
    errorClass: 'form__input-error_is-active'    
 }
 
-export {openPopup, closePopup};
+const formValidatorEditProfile = new FormValidator(config, popupEditProfile);
+const addCardFormValidator = new FormValidator (config, formAddCard);
+
+formValidatorEditProfile.enableValidation();
+addCardFormValidator.enableValidation();

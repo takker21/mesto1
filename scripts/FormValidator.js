@@ -2,6 +2,8 @@ class FormValidator {
     constructor(config, formName) {
         this._config = config;
         this._formName = formName;
+        this._inputList = Array.from(this._formName.querySelectorAll(config.inputList));
+        this._submitButton = this._formName.querySelector(config.submitButton);
     }
 
     _hideErrorMessage(inputElement) {
@@ -84,12 +86,9 @@ class FormValidator {
     }
 
     enableValidation() {
-        const { formSelector, ...rest} = this._config;
-        const formList = Array.from(document.querySelectorAll(formSelector));
+        
     
-        formList.forEach((formElement) => {
-            this._setEventListeners(formElement, rest);
-        })
+        this._setEventListeners(this._formName);
     }
 }
 

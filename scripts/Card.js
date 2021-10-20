@@ -1,9 +1,9 @@
-import { openPopup, closePopup } from './index.js';
+import { openPopup, closePopup} from './utils.js';
 
 const popupFigure = document.querySelector('.popup_type_image');
 const popupFigureImage = popupFigure.querySelector('.figure__image');
 const popupFigureCaption = popupFigure.querySelector('.figure__caption');
-const closeImgButton = document.querySelector('#closeImg');
+
 
 class Card {
     constructor(cardSelector, name, link) {
@@ -23,10 +23,8 @@ class Card {
         openPopup(popupFigure)
         popupFigureImage.src = this._link;
         popupFigureCaption.textContent = this._name;
-        popupFigureImage.alt = this._name;
-        closeImgButton.addEventListener('click', () => {
-            closePopup(popupFigure);
-        })
+        popupFigureImage.alt = this._name;  
+        
     }
 
     _deleteCard() {
