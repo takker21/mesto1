@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/takker21/mesto.git"
+    "url": "git+https://github.com/takker21/mesto1.git"
   },
   "author": "Silkin Dima",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/takker21/mesto/issues"
+    "url": "https://github.com/takker21/mesto1/issues"
   },
-  "homepage": "https://github.com/takker21/mesto#readme",
+  "homepage": "https://github.com/takker21/mesto1#readme",
   "devDependencies": {
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
@@ -31,8 +31,8 @@
     "html-webpack-plugin": "^4.5.0",
     "mini-css-extract-plugin": "^1.3.3",
     "postcss-loader": "^4.1.0",
-    "webpack": "^5.11.0",
-    "webpack-cli": "^4.2.0",
+    "webpack": "^5.60.0",
+    "webpack-cli": "^4.9.1",
     "webpack-dev-server": "^3.11.2"
   },
   "dependencies": {
