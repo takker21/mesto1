@@ -19,4 +19,4 @@ Webpack
 API
 ### Ссылки на проект
 
-https://takker21.github.io/mesto21.github.io/
+https://github.com/takker21/mesto
